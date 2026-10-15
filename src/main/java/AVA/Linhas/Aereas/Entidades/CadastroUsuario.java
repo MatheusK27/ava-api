@@ -1,6 +1,7 @@
 package AVA.Linhas.Aereas.Entidades;
 
 
+import AVA.Linhas.Aereas.DTOEntrada.DadosEntradaUsuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,17 +39,29 @@ public class CadastroUsuario {
     @Embedded
     private Endereco endereco;
 
-    @Column(nullable = false, unique = true)
+    @Column( unique = true)
     private String numeroPassaporte;
 
     @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
-    private String senha;
+        private String senha;
 
     private boolean ativo = true;
 
 
+    public CadastroUsuario(DadosEntradaUsuario dados) {
+        this.primeiroNome = dados.primeiroNome();
+        this.ultimoNome = dados.ultimoNome();
+        this.cpf = dados.cpf();
+        this.dataNascimento = dados.dataNascimento();
+        this.telefone = dados.telefone();
+        this.endereco = dados.endereco();
+        this.numeroPassaporte = dados.numeroPassaporte();
+        this.email = dados.email();
+        this.senha = dados.senha();
 
+
+    }
 }
