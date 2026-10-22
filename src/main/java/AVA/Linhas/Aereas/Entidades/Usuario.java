@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
 
 import java.time.LocalDate;
 
@@ -15,7 +14,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name= "usuario")
-public class CadastroUsuario {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,7 +50,7 @@ public class CadastroUsuario {
     private boolean ativo = true;
 
 
-    public CadastroUsuario(DadosEntradaUsuario dados) {
+    public Usuario(DadosEntradaUsuario dados) {
         this.primeiroNome = dados.primeiroNome();
         this.ultimoNome = dados.ultimoNome();
         this.cpf = dados.cpf();
