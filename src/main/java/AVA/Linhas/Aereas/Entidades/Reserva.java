@@ -1,14 +1,12 @@
 package AVA.Linhas.Aereas.Entidades;
-
-import AVA.Linhas.Aereas.DTOEntrada.DadosReverva;
-import AVA.Linhas.Aereas.Enum.TipoClasse;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.security.SecureRandom;
-import java.time.LocalDate;
+
 import java.util.ArrayList;
+
 import java.util.List;
 
 @Entity
@@ -43,30 +41,22 @@ public class Reserva{
             inverseJoinColumns = @JoinColumn(name = "usuario_id")
     )
     private List<Usuario> usuario = new ArrayList<>();
+
+
     @ManyToMany
     @JoinTable(
             name = "reserva_voos",
             joinColumns = @JoinColumn(name = "reserva_id"),
             inverseJoinColumns = @JoinColumn(name = "voo_id")
     )
-
-    private String origem;
-
-    private String destino;
-
-    private LocalDate dataIda;
-
-    private LocalDate dataVolta;
+    private  List<Voo> voo;
 
 
-
-    public Reserva(DadosReverva dados, List<Usuario> usuarios, List<Voo> voo) {
-        this.usuario = new ArrayList<>(dados.usuario());
-        this.origem = dados.origem();
-        this.destino = dados.destino();
-        this.dataIda = dados.dataIda();
-        this.dataVolta = dados.dataVolta();
+    public Reserva(List<Usuario> usuario, List<Voo> voo) {
+        this.usuario = new ArrayList<>(usuario);
+        this.voo =  new ArrayList<>(voo);
         gerarCodigoReserva();
+
     }
 
 
@@ -84,4 +74,5 @@ public class Reserva{
             this.codigoReserva = codigo.toString();
         }
     }
+
 }

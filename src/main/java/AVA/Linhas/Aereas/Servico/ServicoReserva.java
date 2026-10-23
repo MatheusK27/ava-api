@@ -25,15 +25,13 @@ public class ServicoReserva {
 
 
     public SaidaReserva fazerReserva(DadosReverva dados) {
-        List<Long> ids = dados.usuario()
-                .stream()
-                .map(Usuario::getId)
-                .toList();
-        List<Usuario> usuarios = repositorioUsuario.findAllById(ids);
+        var ids = dados.usuario().stream().map(Usuario::getId).toList();
+        var usuario= repositorioUsuario.findAllById(ids);
 
-        var voo= repositorioVoo.findByOrigemAndDestinoAndDataIdaAndDataVolta(dados.origem(),  dados.destino(),dados.dataIda(),dados.dataVolta());
+        var voo= dados.voo().stream().map(Voo::getId).toList();
+        var vooid= repositorioVoo.findAllById(voo);
 
-        var reserva = new Reserva(dados,usuarios,voo);
+        var reserva = new Reserva(usuario,vooid);
         return new SaidaReserva(reserva);
     }
 }
