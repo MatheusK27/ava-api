@@ -32,6 +32,7 @@ public class ServicoReserva {
         var vooid= repositorioVoo.findAllById(voo);
 
         var reserva = new Reserva(usuario,vooid);
-        return new SaidaReserva(reserva);
+        var novarReserva= repositorioReserva.save(reserva);
+        return new SaidaReserva(novarReserva);
     }
 }

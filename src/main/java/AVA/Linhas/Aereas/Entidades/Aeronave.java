@@ -40,6 +40,7 @@ public class Aeronave {
         this.aeronave = dados.modeloAeronave();
         this.assentosPorClasse.putAll(dados.assentosPorClasse());
 
+
     }
 
     public int totalAssentos(){

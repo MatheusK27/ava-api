@@ -6,10 +6,7 @@ import AVA.Linhas.Aereas.DTOSaida.DadosVoo;
 import AVA.Linhas.Aereas.Servico.ServicoVoo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/voo")
@@ -23,6 +20,12 @@ public class CadastrarVoo {
     public ResponseEntity<DadosVoo> cadastrarVoo(@RequestBody  DadosCadastroVoo dados){
         var cadastro = servicoVoo.cadastarVoo(dados);
         return ResponseEntity.ok().body(cadastro);
+    }
+
+    @PatchMapping("/{id}/desativar")
+    public ResponseEntity<Void> desativarVoo(@PathVariable Long id){
+        servicoVoo.desativarVoo(id);
+        return ResponseEntity.noContent().build();
     }
 
 }

@@ -38,6 +38,9 @@ public class Voo {
     @Enumerated(EnumType.STRING)
     private TipoClasse classe;
 
+    private boolean ativo= true;
+
+
     public Voo(DadosCadastroVoo dados) {
         this.origem = dados.origem();
         this.destino = dados.destino();
@@ -46,6 +49,10 @@ public class Voo {
         this.aeronave = dados.aeronave();
         this.classe = dados.classe();
 
+    }
+
+    public void desativarVoo(){
+        this.ativo=false;
     }
 }
 
