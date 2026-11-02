@@ -1,8 +1,5 @@
 package AVA.Linhas.Aereas.Entidades;
-
-
 import AVA.Linhas.Aereas.DTOEntrada.DadosCadastroVoo;
-import AVA.Linhas.Aereas.Enum.ModeloAeronave;
 import AVA.Linhas.Aereas.Enum.TipoClasse;
 import jakarta.persistence.*;
 import lombok.Data;

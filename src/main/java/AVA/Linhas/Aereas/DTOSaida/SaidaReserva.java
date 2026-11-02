@@ -33,9 +33,5 @@ public record SaidaReserva(
                 reserva.getVoo().stream().map(Voo::getDestino).toList(),
                 reserva.getVoo().stream().map(Voo::getDataVolta).toList());
 
-
-
-
-
     }
 }

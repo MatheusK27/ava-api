@@ -12,8 +12,6 @@ import AVA.Linhas.Aereas.Repositorio.RepositorioVoo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 public class ServicoReserva {
@@ -25,14 +23,10 @@ public class ServicoReserva {
 
 
     public SaidaReserva fazerReserva(DadosReverva dados) {
-        var ids = dados.usuario().stream().map(Usuario::getId).toList();
-        var usuario= repositorioUsuario.findAllById(ids);
-
-        var voo= dados.voo().stream().map(Voo::getId).toList();
-        var vooid= repositorioVoo.findAllById(voo);
-
-        var reserva = new Reserva(usuario,vooid);
-        var novarReserva= repositorioReserva.save(reserva);
-        return new SaidaReserva(novarReserva);
+        var usuario= repositorioUsuario.findAllById(dados.usuario());
+        var voo= repositorioVoo.findAllById(dados.voo());
+        var reserva = new Reserva(usuario,voo);
+        var novaReserva= repositorioReserva.save(reserva);
+        return new SaidaReserva(novaReserva);
     }
 }

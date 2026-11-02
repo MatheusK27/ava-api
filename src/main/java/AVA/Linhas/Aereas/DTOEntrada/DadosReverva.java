@@ -6,6 +6,6 @@ import AVA.Linhas.Aereas.Entidades.Voo;
 import java.util.List;
 
 public record DadosReverva(
-        List<Usuario> usuario,
-        List<Voo> voo
+        List<Long> usuario,
+        List<Long> voo
 ) {}

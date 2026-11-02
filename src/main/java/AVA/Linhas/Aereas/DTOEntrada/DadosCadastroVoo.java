@@ -1,7 +1,7 @@
 package AVA.Linhas.Aereas.DTOEntrada;
 
 import AVA.Linhas.Aereas.Entidades.Aeronave;
-import AVA.Linhas.Aereas.Enum.ModeloAeronave;
+
 import AVA.Linhas.Aereas.Enum.TipoClasse;
 
 import java.time.LocalDate;
