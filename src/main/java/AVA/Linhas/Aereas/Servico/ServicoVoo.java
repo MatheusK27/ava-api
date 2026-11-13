@@ -35,7 +35,7 @@ public class ServicoVoo {
     public void desativarVoo(Long id){
         Voo voo= repositorioVoo.findById(id).orElseThrow(() -> new RuntimeException("Id inválido"));
         if(repositorioReserva.existsByVoo_Id(id)){
-            throw new RuntimeException("teste feature main  ");
+            throw new RuntimeException("teste feature 1 ");
         }
         voo.desativarVoo();
     }
