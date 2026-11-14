@@ -4,4 +4,5 @@ public class classefeature {
 
 
     String nome;
+    String descricao;
 }
