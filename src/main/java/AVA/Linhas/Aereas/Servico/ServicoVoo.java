@@ -33,7 +33,7 @@ public class ServicoVoo {
 
     @Transactional
     public void desativarVoo(Long id){
-        Voo voo= repositorioVoo.findById(id).orElseThrow(() -> new RuntimeException("Id inválidosss"));
+        Voo voo= repositorioVoo.findById(id).orElseThrow(() -> new RuntimeException("Id inválidosssdddddd"));
         if(repositorioReserva.existsByVoo_Id(id)){
             throw new RuntimeException("teste feature 2 ");
         }
