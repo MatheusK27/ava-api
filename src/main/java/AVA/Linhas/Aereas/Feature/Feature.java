@@ -4,4 +4,5 @@ public class Feature {
     String nome;
     String descricao;
     String categoria;
+    String tipo;
 }
