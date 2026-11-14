@@ -1,4 +1,4 @@
 package AVA.Linhas.Aereas.TesteFeature;
 
-public class featureMain2 {
+public class feature2 {
 }
