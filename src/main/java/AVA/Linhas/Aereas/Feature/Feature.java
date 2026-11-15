@@ -6,4 +6,5 @@ public class Feature {
     String categoria;
     String tipo;
     String voo;
+    String id;
 }
